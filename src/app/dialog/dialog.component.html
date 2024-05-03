@@ -1,0 +1,175 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  </button>
+  <span>SoftMed LTD</span>
+</mat-toolbar>
+
+
+<div class="container">
+<h1 mat-dialog-title>Specimen receiving form</h1>
+
+
+<div mat-dialog-content> 
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+ 
+  <mat-form-field appearance="outline">
+    <mat-label>Time</mat-label>
+    <input matInput placeholder="Time"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Receieved by</mat-label>
+    <input matInput placeholder="Receieved by">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Handled by</mat-label>
+    <input matInput placeholder="Handled by">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Hospital Name</mat-label>
+    <input matInput placeholder="Hospital name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Sample Type</mat-label>
+    <mat-select placeholder="Sample Type">
+        <mat-option value="">HISTOLGY SAMPLE</mat-option>
+        <mat-option value="">CYTOLOGY</mat-option>
+        <mat-option value="">FLUID SAMPLE</mat-option>
+        <mat-option value="">PAP SMEAR</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Number of specimen received</mat-label>
+    <input matInput type="number" placeholder="Number of specimen received">
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline">
+    <mat-label>Fixed</mat-label>
+    <input matInput type="number" placeholder="Fixed">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Unfixed</mat-label>
+    <input matInput type="number" placeholder="Unfixed">
+  </mat-form-field>
+
+  <h2 mat-dialog-title><i><em>In case of any issue please note the particular name of the patient against the specific issue</em></i></h2>
+
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline">
+        <mat-label>Sample not placed in proper fixative</mat-label>
+        <input matInput placeholder="Sample not placed in proper fixative">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Sample not placed in fixative</mat-label>
+        <input matInput placeholder="Sample not placed in fixative">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Sample received without form</mat-label>
+        <input matInput placeholder="Sample received without form">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Form received without Sample</mat-label>
+        <input matInput placeholder="Form received without Sample">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Demographic data not filled in form</mat-label>
+        <input matInput placeholder="Demographic data not filled in form">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Inadequate Sample</mat-label>
+        <input matInput placeholder="Inadequate Sample">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contaminated Sample</mat-label>
+        <input matInput placeholder="Contaminated Sample">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Unlabeled or misplaced Sample</mat-label>
+        <input matInput placeholder="Unlabeled or misplaced Sample">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Necrotic Sample</mat-label>
+        <input matInput placeholder="Necrotic Sample">
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Unrefrigerated cytology Sample</mat-label>
+        <input matInput placeholder="Unrefrigerated cytology Sample">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Cytology placed in a wrong container</mat-label>
+        <input matInput placeholder="Cytology placed in a wrong container">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>OTHER</mat-label>
+        <input matInput placeholder="OTHER">
+      </mat-form-field>
+
+    </div>
+
+    <div mat-dialog-content>
+      <mat-form-field appearance="outline">
+          <mat-label>Elaborate OTHER</mat-label>
+          <input matInput placeholder="OTHER">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Action taken</mat-label>
+          <input matInput placeholder="Action taken">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Reported to</mat-label>
+          <input matInput placeholder="Reported to">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Signature of Handler</mat-label>
+          <input matInput placeholder="Signature of Handler">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Signature of Receiver</mat-label>
+          <input matInput placeholder="Signature of Receiver">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Comments</mat-label>
+          <input matInput placeholder="Comments">
+        </mat-form-field>
+  </div>
+
+  <div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-Close>Close</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary">Save</button>
+
+</div>
+</div>
+
