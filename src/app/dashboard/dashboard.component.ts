@@ -1,17 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-sidebar',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
-
-  constructor(private auth:AuthService){ }
-
-  ngOnInit(): void {
-    this.auth.canAccess();
-  }
-
-}
+export class DashboardComponent {
+  
+  };

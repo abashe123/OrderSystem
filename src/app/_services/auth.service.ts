@@ -1,24 +1,23 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenService } from './token.service';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private loggedIn = new BehaviorSubject<boolean>(this.token.loggedIn());
+  authStatus = this.loggedIn.asObservable();
 
-  constructor(private router :Router) { }
-
-  isAuthenticated():boolean{
-    if (sessionStorage.getItem('token')!==null){
-      return true;
-    }
-    return false;
+  ChangeAuthStatus(value:boolean){
+    this.loggedIn.next(value);
   }
 
-  canAccess(){
-    if(!this.isAuthenticated()){
-        //redirect to login
-        this.router.navigate(['/login']);
-    }
+  constructor(private token :TokenService, ) { }
+
+
   }
-}
+ 

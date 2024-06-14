@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar>
 <section class="register-block">
     <div class="container">
        <div class="row ">
@@ -32,15 +32,6 @@
              </div>
 
              <div class="form-group">
-                <label for="exampleInputRank1" class="text-uppercase">Rank</label>
-  
-                <input type="text"  class="form-control" name="Rank" id="" [(ngModel)]="formdata.rank" #rank="ngModel" required  >
-                <span class="text-danger" *ngIf="this.submit&&rank.errors?.['required']">
-                    Rank (Regional,District etc) is required.
-                </span>
-             </div>
-
-             <div class="form-group">
                 <label for="exampleInputPhoneNumber1" class="text-uppercase">Phone Number</label>
                 <input class="form-control" type="Phone Number"  name="Phone Number" id="" [(ngModel)]="formdata.phonenumber" #phonenumber="ngModel" required>
                 <span class="text-danger" *ngIf="this.submit&&phonenumber.errors?.['required']" >
@@ -54,7 +45,6 @@
                 <span class="text-danger" *ngIf="this.submit&&password.errors?.['required']" >
                     Password is required.
                 </span>
-
                 <span class="text-danger" *ngIf="this.submit&&password.errors?.['minlength']" >
                   Minimum length of password is 8 characters 
               </span>
@@ -87,4 +77,4 @@
   
   
     </div>
-  </section>
+  </section> -->
