@@ -29,10 +29,6 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
-import { TokenService } from './_services/token.service';
-import { AuthService } from './_services/auth.service';
-import { PatientComponent } from './dashboard/patient/patient.component';
-import { AdminModule } from './admin/admin.module';
 
 
 
@@ -47,8 +43,6 @@ import { AdminModule } from './admin/admin.module';
     DashboardComponent,
     DialogComponent,
     UserRegistrationComponent,
-    PatientComponent,
-    
   ],
   
   imports: [
@@ -73,9 +67,6 @@ import { AdminModule } from './admin/admin.module';
     MatCardModule,
     MatSidenavModule,
     MatListModule,
-    AdminModule
-
-
     
 
   ],

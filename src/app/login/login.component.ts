@@ -5,7 +5,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RandomService } from '../_services/random.service';
 import { TokenService } from '../_services/token.service';
-import { AuthService } from '../_services/auth.service';
 
 
 @Component({
@@ -19,68 +18,42 @@ export class LoginComponent {
   submit=true;
   loading=false;
   errorMessage="";
-  handlerError: any;
   
-  constructor(private RandomService: RandomService, private token: TokenService, private router: Router, private Auth: AuthService  //private http: HttpClient
+  public error = null;
+  constructor(
+    private random: RandomService,
+    private Token: TokenService
   
   ){}
 
-  ngOnIt(): void{
-}
-  public error = null;
+  
   onSubmit() {
     this.loading = true;
-    return this.RandomService.login(this.formdata).subscribe(
+    this.random.login(this.formdata).subscribe(
       data => {
         this.handleResponse(data);
-        this.loading = false;  // Stop spinner on success
+        this.loading = false;
       },
-
-      error => {
-        this.handlerError (error);
-        this.loading = true;  // Stop spinner on error
-      },
+      (error: HttpErrorResponse) => {
+        this.handleError(error);
+        this.loading = false;
+      }
     );
+  }
+
+  handleResponse(data: any){
+    this.Token.handle(data.access_token);
 
   }
 
-  handleResponse(data:any){
-    console.log(data.access_token);
-    this.token.handle(data.access_token);
-    this.Auth.ChangeAuthStatus(true);
-    this.router.navigateByUrl('/dashboard');
+  handleError(error: HttpErrorResponse) {
+    this.errorMessage = error.error.error;
   }
-
-    handleError(error: HttpErrorResponse) { 
-      this.errorMessage = error.error.error;
-      // this.loading = false;
-    }
-
-
   
+  ngOnit(){
+    
+  }
 }
-  
-  
-
-  //     data => {
-  //       this.handleResponse(data);
-  //       this.loading = false;
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       this.handleError(error);
-  //       this.loading = false;
-  //     }
-  //   );
-  // }
-
-  // handleResponse(data: any){
-
-
-  // }
-
-  // handleError(error: HttpErrorResponse) {
-  //   this.errorMessage = error.error.error;
-  // }
 
 
 
@@ -88,4 +61,3 @@ export class LoginComponent {
 // error => this.handleError(error)
 // );
 // }
-  
