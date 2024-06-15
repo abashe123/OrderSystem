@@ -54,6 +54,7 @@
                 <span class="text-danger" *ngIf="this.submit&&password.errors?.['required']" >
                     Password is required.
                 </span>
+
                 <span class="text-danger" *ngIf="this.submit&&password.errors?.['minlength']" >
                   Minimum length of password is 8 characters 
               </span>

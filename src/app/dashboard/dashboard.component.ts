@@ -1,26 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-sidebar',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-
 export class DashboardComponent {
-  // Define any necessary properties here
-
-  constructor() { }
-
-  // Define the addToggle method
-  status = false;
-addToggle()
-{
-  this.status = !this.status;       
-}
-}
-
   
-
-
-  
+  };

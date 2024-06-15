@@ -39,16 +39,4 @@ addToggle()
 }
 
 }
-  // constructor(private dialog : MatDialog){
-
-  // }
-  // opendialog() {
-  //   this.dialog.open(DialogComponent);
-  //     {
-        
-  //       }
-        
-  //   }
-
-
 

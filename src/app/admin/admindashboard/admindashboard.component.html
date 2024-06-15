@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <h1>Admin Page</h1>
+  
+    <!-- Patients Table -->
+    <table class="table mt-4" *ngIf="patients.length > 0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Sample Type</th>
+          <th>Clinical History</th>
+          <th>Diagnosis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <td>{{ patient.name }}</td>
+          <td>{{ patient.age }}</td>
+          <td>{{ patient.gender }}</td>
+          <td>{{ patient.sampleType }}</td>
+          <td>{{ patient.clinicalHistory }}</td>
+          <td>{{ patient.diagnosis }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

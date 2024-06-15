@@ -1,4 +1,53 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="javascript:void(0);" routerLink="/home">SoftMed LTD</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+  
+        <ng-container *ngIf="loggedIn; else notAuthenticated">
+  
+          <li class="nav-item">
+            <a href="javascript:void(0);" routerLink="/dashboard" class="nav-link">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <ul class="navbar-nav mb-2 mb-lg-0"> </ul>
+            <a class="nav-link active" aria-current="page" href="#">Profile</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" (click)="logout($event)">Logout</a>
+          </li>
+
+  
+        </ng-container>
+  
+        <ng-template #notAuthenticated>
+          <li class="nav-item">
+            <a href="javascript:void(0);" routerLink="/register" class="nav-link">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" routerLink="/login">Login</a>
+          </li>
+        </ng-template>
+  
+      </ul>
+
+      <!-- <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Profile</a>
+            </li>
+
+        </ul>
+
+    </div> -->
+    </div>
+  </nav>
+  
+
+
+<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="javascript:void(0);" routerLink="/">SoftMed LTD</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,25 +56,25 @@
     <ul class="navbar-nav mr-auto"  >
         
 
-        <ng-container *ngIf="this.auth.isAuthenticated();then Authenticated;else notAuthenticated"> 
+        <ng-container *ngIf="this.Auth.isAuthenticated();then Authenticated;else notAuthenticated"> 
 
         </ng-container>
         
         <ng-template #notAuthenticated>
             
-            <li class="nav-item"><a href="javascript:void(0);" routerLink="/register" class="nav-link" >Register</a></li>
-            <li><a class="nav-link" href="javascript:void(0);" routerLink="/login" >Login</a></li>
+            <li class="nav-item"><a href="javascript:void(0);" routerLink="/register" *ngIf="!loggedIn" class="nav-link" >Register</a></li>
+            <li><a class="nav-link" href="javascript:void(0);" routerLink="/login" *ngIf="!loggedIn">Login</a></li>
             
             
         </ng-template>
 
-        <ng-template #Authenticated> 
-            <li class="nav-item"><a href="javascript:void(0);" routerLink="/dashboard"class="nav-link" >Dashboard</a></li>
-        <li><a class="nav-link" href="javascript:void(0);"  >Logout</a></li>
+        <ng-template Authenticated> 
+            <li class="nav-item"><a href="javascript:void(0);" routerLink="/dashboard"class="nav-link" *ngIf="loggedIn" >Dashboard</a></li>
+        <li><a class="nav-link" href="javascript:void(0);" (click)="Logout()">Logout</a></li>
         </ng-template> 
      
 
     </ul>
 
     </div>
-</nav>
+</nav> -->
