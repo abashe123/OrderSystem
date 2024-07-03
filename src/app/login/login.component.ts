@@ -38,54 +38,46 @@ export class LoginComponent {
 
       error => {
         this.handlerError (error);
-        this.loading = true;  // Stop spinner on error
+        this.loading = false;  // Stop spinner on error
       },
     );
 
   }
 
   handleResponse(data:any){
-    console.log(data.access_token);
+    console.log(data);
     this.token.handle(data.access_token);
-    this.Auth.ChangeAuthStatus(true);
-    this.router.navigateByUrl('/dashboard');
+    const userData =localStorage.setItem("currentUser", JSON.stringify(data));
+    const userLoggedIn :any = localStorage.getItem("currentUser")
+    const currentUser = JSON.parse(userLoggedIn)
+    if(userLoggedIn){
+      const currentUser = JSON.parse(userLoggedIn);
+      console.log(currentUser)
+      
+      }else{
+      
+      console.log('No current user');
+      }
+
+    console.log('current user:', currentUser);
+    console.log(userData);
+    this.Auth.changeAuthStatus(true);
+    const role = this.token.getRole();
+    if (currentUser.role === "admin") {
+      this.router.navigateByUrl('/admin');
+    } else {
+      this.router.navigateByUrl('/dashboard');
+    }
   }
+
 
     handleError(error: HttpErrorResponse) { 
       this.errorMessage = error.error.error;
-      // this.loading = false;
+      this.loading = false;
     }
 
 
   
 }
   
-  
-
-  //     data => {
-  //       this.handleResponse(data);
-  //       this.loading = false;
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       this.handleError(error);
-  //       this.loading = false;
-  //     }
-  //   );
-  // }
-
-  // handleResponse(data: any){
-
-
-  // }
-
-  // handleError(error: HttpErrorResponse) {
-  //   this.errorMessage = error.error.error;
-  // }
-
-
-
-// data => console.log(data)
-// error => this.handleError(error)
-// );
-// }
   

@@ -1,0 +1,26 @@
+
+
+    <!-- Messages Form -->
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+        <h4 class="card-title mb-0">Send a Message to Admin</h4>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="sendMessage()" #messageForm="ngForm">
+          <div class="form-group mt-3">
+            <label for="userName">Hospital Name</label>
+            <input type="text" class="form-control" id="userName" [(ngModel)]="message.name" name="name" required>
+          </div>
+          <div class="form-group mt-3">
+            <label for="userEmail">Email</label>
+            <input type="email" class="form-control" id="userEmail" [(ngModel)]="message.email" name="email" required>
+          </div>
+          <div class="form-group mt-3">
+            <label for="userMessage">Your Message</label>
+            <textarea class="form-control" id="userMessage" [(ngModel)]="message.content" name="content" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3">Send</button>
+        </form>
+      </div>
+    </div>
+

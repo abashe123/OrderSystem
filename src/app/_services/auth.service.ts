@@ -9,15 +9,20 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
   providedIn: 'root'
 })
 export class AuthService {
+  isAuthenticated() {
+  }
   private loggedIn = new BehaviorSubject<boolean>(this.token.loggedIn());
   authStatus = this.loggedIn.asObservable();
 
-  ChangeAuthStatus(value:boolean){
+  changeAuthStatus(value:boolean){
     this.loggedIn.next(value);
   }
 
-  constructor(private token :TokenService, ) { }
 
+
+  constructor(private token :TokenService, private router: Router ) { }
+
+  
 
   }
  

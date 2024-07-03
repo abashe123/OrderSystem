@@ -6,13 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class TokenService {
 
+  
+  
   constructor() { }
+
   handle(token:any){
     this.set(token);
   }
+  
   set(token:any){
-    const tkn = localStorage.setItem('token',token)
-    console.log(tkn)
+    //const tkn = localStorage.setItem('token',token)
+    //console.log(tkn)
     return localStorage.setItem('token', token);
   }
   
@@ -28,7 +32,7 @@ export class TokenService {
     const token = this.get();
     if(token){
       const payload = this.payload(token);
-      console.log(payload)
+      //console.log(payload)
       if(payload){
         return(payload.iss==="http://127.0.0.1:8000/api/login")?true:false;
       }
@@ -39,18 +43,30 @@ export class TokenService {
 
   payload (token:any){
     const payload = token.split('.')[1];
-    console.log(payload)
+    //console.log(payload)
     return this.decode(payload)
   }
 
   decode(payload:any){
-    console.log(payload)
-    return JSON.parse(payload)
+    //console.log(payload)
+    return JSON.parse(atob(payload));
+  }
+
+  getRole() {
+    const token = this.get();
+    if (token) {
+      const payload = this.payload(token);
+      return payload ? payload.role : null; // Ensure your token payload includes the 'role'
+    }
+    return null;
   }
 
   loggedIn(){
     return this.isValid(); 
   }
+
+  
 }
+
 
 

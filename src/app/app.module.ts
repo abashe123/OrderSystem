@@ -6,21 +6,29 @@ import { Routes } from '@angular/router';
 import { DialogComponent } from './dialog/dialog.component';
 import { AfterLoginService } from './_services/after-login.service';
 import { BeforeLoginService } from './_services/before-login.service';
+import { AdminComponent } from './admin/admin.component';
+import { AuthGuardService } from './_services/auth-guard.service';
+import { MessagesComponent } from './messages/messages.component';
+import { CreateOrderComponent } from './create-order/create-order.component';
 
-export const routes:Routes = [
-  {path:'',component:HomeComponent},
-  {path:'register',component:RegisterComponent,
-    canActivate : [BeforeLoginService]
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'register', component: RegisterComponent, canActivate: [BeforeLoginService] },
+  { path: 'login', component: LoginComponent, canActivate: [BeforeLoginService] },
+  {
+    path: 'admin', component: AdminComponent, canActivate: [AuthGuardService], data: { expectedRole: 'admin' },
+    children: [
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AfterLoginService] }
+    ]
   },
-  {path:'login',component:LoginComponent,
-  canActivate : [BeforeLoginService]
-  },
-  {path:'dashboard',component:DashboardComponent,
-  canActivate : [AfterLoginService]
-  },
-  {path:'dialog',component:DialogComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AfterLoginService] },
+  { path: 'dialog', component: DialogComponent },
+  { path: 'messages', component: MessagesComponent, canActivate: [AfterLoginService] },
+  { path: 'create-order', component: CreateOrderComponent, canActivate: [AfterLoginService] },
 
 ];
+
+
   
 
 

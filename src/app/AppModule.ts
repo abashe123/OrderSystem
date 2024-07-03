@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -12,28 +12,27 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { routes } from './app.module';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { DialogComponent } from './dialog/dialog.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule, matDatepickerAnimations} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
-import {MatCard, MatCardModule} from '@angular/material/card';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
-import { HttpErrorResponse } from '@angular/common/http';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import { TokenService } from './_services/token.service';
-import { AuthService } from './_services/auth.service';
-import { PatientComponent } from './dashboard/patient/patient.component';
-import { AdminModule } from './admin/admin.module';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { routes } from './app.module';
+import { NgxPermissionsModule } from 'ngx-permissions';
+import { AdminComponent } from './admin/admin.component';
+import { MessagesComponent } from './messages/messages.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { CreateOrderComponent } from './create-order/create-order.component';
+import { PatientComponent } from './create-order/patient/patient.component';
 
 
 
@@ -46,11 +45,15 @@ import { AdminModule } from './admin/admin.module';
     LoginComponent,
     DashboardComponent,
     DialogComponent,
-    UserRegistrationComponent,
+    AdminComponent,
+    MessagesComponent,
+    SidenavComponent,
+    CreateOrderComponent,
     PatientComponent,
-    
+
+
   ],
-  
+
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
@@ -64,7 +67,7 @@ import { AdminModule } from './admin/admin.module';
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule, 
+    MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -73,14 +76,12 @@ import { AdminModule } from './admin/admin.module';
     MatCardModule,
     MatSidenavModule,
     MatListModule,
-    AdminModule
+    NgxPermissionsModule.forRoot()
 
-
-    
-
+ 
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

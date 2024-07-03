@@ -25,9 +25,10 @@ ngOnInit(): void {
 logout(event:MouseEvent){
   event?.preventDefault();
   this.token.remove();
-  this.Auth.ChangeAuthStatus(false);
+  this.Auth.changeAuthStatus(false);
   this.router.navigateByUrl('/login')
 }
+
 
 }
 

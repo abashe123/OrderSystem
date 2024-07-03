@@ -1,51 +1,60 @@
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { RandomService } from '../_services/random.service';
 import { TokenService } from '../_services/token.service';
 import { Router } from '@angular/router';
 
-
+interface FormData {
+  name: string;
+  email: string;
+  rank: string;
+  phonenumber: string;
+  password: string;
+}
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+export class RegisterComponent implements OnInit {
 
-export class RegisterComponent {
+  formdata: FormData = { name: "", email: "", rank: "", phonenumber: "", password: "" };
+  submit = false;
+  errorMessage = "";
+  loading = false;
+  error: any = null;
 
-  formdata={name:"",email:"",rank:"",phonenumber:"",password:""};
-  submit=false;
-  errorMessage="";
-  loading=false;
+  constructor(private random: RandomService, private token: TokenService, private router: Router) { }
 
-//public error = null;
-
-constructor(private random: RandomService, private token: TokenService, private router: Router){ }
-public error: any = []
-ngOnInit(): void{
+  ngOnInit(): void {
   }
-onSubmit() {
 
-  console.log(this.formdata)
-  return this.random.register(this.formdata).subscribe(
-    data => this.handleResponse(data),
-    error => this.handleError(error)
-  ); 
-}
+  onSubmit() {
+    this.loading = true; // Start loading
+    this.errorMessage = ""; // Clear previous error messages
+    console.log(this.formdata);
+    this.random.register(this.formdata).subscribe(
+      data => this.handleResponse(data),
+      error => this.handleError(error)
+    );
+  }
 
-handleResponse(data:any){
+  handleResponse(data: any) {
     console.log(data.access_token);
     this.token.handle(data.access_token);
-    //this.Auth.ChangeAuthStatus(true);
-    this.router.navigateByUrl('dashboard');
-    // this.auth.canAuthenticate();
+    this.router.navigateByUrl('/login');
+    this.loading = false; // Stop loading after successful registration
   }
 
-handleError(error:any){
-this.error = error.error.error;
+  handleError(error: HttpErrorResponse) {
+    this.error = error.error.error;
+    this.errorMessage = "Registration failed. Please try again.";
+    this.loading = false; // Stop loading on error
+  }
 }
+
+
 
 //   this.loading = true;
 //   this.random.register(this.formdata).subscribe(
@@ -72,4 +81,3 @@ this.error = error.error.error;
 
 //   constructor(private http: HttpClient) { }
 // 
-}

@@ -1,0 +1,139 @@
+<!-- Navbar Component -->
+<app-navbar></app-navbar>
+
+<!-- Sidebar and Content -->
+<div class="d-flex">
+  <!-- Sidebar -->
+  <div class="sidebar bg-dark text-white p-3 vh-100" id="side_nav">
+    <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
+        <h1 class="fs-4">
+            <img src="assets/img/softmed-logo.png" alt="Softmed Logo" class="me-2" style="height: 30px;">
+            <span class="text-white">SoftMed Ltd</span>
+          </h1>
+      <button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
+        <i class="fal fa-stream"></i>
+      </button>
+    </div>
+
+    <ul class="list-unstyled px-2">
+      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i> Reports</a></li>
+      <li class="">
+        <a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
+          <span><i class="fal fa-comment"></i> Messages</span>
+        </a>
+      </li>
+      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-envelope-open-text"></i> Services</a></li>
+      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i> Order Status</a></li>
+    </ul>
+    <hr class="h-color mx-2">
+    <ul class="list-unstyled px-2">
+      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars"></i> Settings</a></li>
+      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bell"></i> Notifications</a></li>
+    </ul>
+  </div>
+
+  <!-- Content -->
+  <div class="content p-4 w-100">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between d-md-none d-block">
+          <button class="btn px-1 py-0 open-btn me-2"><i class="fal fa-stream"></i></button>
+          <h1 class="fs-4">
+            <img src="assets/img/softmed-logo.png" alt="Softmed Logo" class="me-2" style="height: 30px;">
+            <span class="text-white">SoftMed Ltd</span>
+          </h1>
+        </div>
+        <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fal fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Specimen Form Card -->
+    <div class="card mb-4">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h4 class="card-title mb-0">Specimen Form</h4>
+        <button type="button" class="btn btn-primary">Send</button>
+      </div>
+      <div class="card-body">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="handledBy">Handled by</label>
+            <input type="text" class="form-control" id="handledBy" placeholder="Enter handler's name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="receivedBy">Received by</label>
+            <input type="text" class="form-control" id="receivedBy" placeholder="Enter receiver's name">
+          </div>
+          <div class="form-group col-md-12">
+            <label for="hospitalName">Hospital Name</label>
+            <input type="text" class="form-control" id="hospitalName" placeholder="Enter hospital name">
+          </div>
+        </div>
+
+        <!-- Issue Form -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h4 class="card-title mb-0">Issue Report</h4>
+          </div>
+          <div class="card-body">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="issueReason">Reason</label>
+                <select class="form-control" id="issueReason">
+                  <option value="">Select Reason</option>
+                  <option value="Sample not placed in proper fixative">Sample not placed in proper fixative</option>
+                  <option value="Sample not placed in fixative">Sample not placed in fixative</option>
+                  <option value="Sample received without form">Sample received without form</option>
+                  <option value="Form received without sample">Form received without sample</option>
+                  <option value="Demographic data not filled in form">Demographic data not filled in form</option>
+                  <option value="Inadequate sample">Inadequate sample</option>
+                  <option value="Contaminated sample">Contaminated sample</option>
+                  <option value="Unlabeled or mislabeled sample">Unlabeled or mislabeled sample</option>
+                  <option value="Necrotic sample">Necrotic sample</option>
+                  <option value="Unrefrigerated cytology sample">Unrefrigerated cytology sample</option>
+                  <option value="Cytology placed in a wrong container">Cytology placed in a wrong container</option>
+                  <option value="OTHER">OTHER</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="patientName">Patient Name</label>
+                <input type="text" class="form-control" id="patientName" placeholder="Enter patient's name">
+              </div>
+            </div>
+
+            <!-- Elaborate Other -->
+            <div class="form-group">
+              <label for="elaborateOther">Elaborate “Other”</label>
+              <textarea class="form-control" id="elaborateOther" rows="4" placeholder="Elaborate on the 'Other' reason"></textarea>
+            </div>
+
+            <!-- Action Taken -->
+            <div class="form-group">
+              <label for="actionTaken">Action taken</label>
+              <textarea class="form-control" id="actionTaken" rows="4" placeholder="Describe the action taken"></textarea>
+            </div>
+
+            <!-- Additional Details -->
+            <div class="form-group">
+              <label for="reportedTo">Reported to</label>
+              <input type="text" class="form-control" id="reportedTo" placeholder="Enter who the issue was reported to">
+            </div>
+            <div class="form-group">
+              <label for="reportDate">Date reported</label>
+              <input type="date" class="form-control" id="reportDate">
+            </div>
+            <div class="form-group">
+              <label for="feedback">Feedback from the sender</label>
+              <textarea class="form-control" id="feedback" rows="4" placeholder="Provide feedback received"></textarea>
+            </div>
+
+            <button type="button" class="btn btn-primary">Submit Issue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

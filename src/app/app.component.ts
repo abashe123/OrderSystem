@@ -21,22 +21,7 @@ interface SideNavToggle {
 export class AppComponent {
   title = 'myapp';
 
-isSideNavCollapsed =  false;
-screenWidth = 0;
 
-  onToggleSideNav(data: SideNavToggle): void {
-    this.screenWidth = data.screenWidth;
-    this.isSideNavCollapsed = data.collapsed;
-    
-  }
-
-
-//Sidebar toggle show hide function
-status = false;
-addToggle()
-{
-  this.status = !this.status;       
-}
 
 }
 
