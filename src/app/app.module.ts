@@ -10,9 +10,11 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { MessagesComponent } from './messages/messages.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
+import { OrderStatusComponent } from './order-status/order-status.component';
+
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent, canActivate: [BeforeLoginService] },
   { path: 'login', component: LoginComponent, canActivate: [BeforeLoginService] },
   {
@@ -25,6 +27,8 @@ export const routes: Routes = [
   { path: 'dialog', component: DialogComponent },
   { path: 'messages', component: MessagesComponent, canActivate: [AfterLoginService] },
   { path: 'create-order', component: CreateOrderComponent, canActivate: [AfterLoginService] },
+  { path: 'order-status', component: OrderStatusComponent, canActivate: [AfterLoginService] },
+
 
 ];
 

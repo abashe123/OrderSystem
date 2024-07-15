@@ -9,8 +9,12 @@ import { HttpClient } from '@angular/common/http';
 export class DashboardComponent implements OnInit {
   constructor(private http: HttpClient) {}
   
-  ngOnInit(): void {
+  userRole:any
+
   
+  ngOnInit(): void {
+    this.userRole = localStorage.getItem('role')
+
   }
   
   };

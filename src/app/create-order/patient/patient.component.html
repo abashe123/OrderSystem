@@ -15,6 +15,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    
                     <div class="mb-3">
                         <label for="patientName" class="form-label">Name</label>
                         <input type="text" id="patientName" class="form-control" [(ngModel)]="patient.name" name="name" placeholder="Enter patient's full name" required>
@@ -33,7 +34,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="sampleType" class="form-label">Sample Type</label>
-                        <select id="sampleType" class="form-select" [(ngModel)]="patient.sampleType" name="sampleType" required>
+                        <select id="sampleType" class="form-select" [(ngModel)]="patient.sampletype" name="sampleType" required>
                             <option selected disabled>Choose...</option>
                             <option value="Biopsy">Biopsy</option>
                             <option value="Cytology">Cytology</option>
@@ -43,7 +44,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="clinicalHistory" class="form-label">Clinical History</label>
-                        <textarea id="clinicalHistory" class="form-control" [(ngModel)]="patient.clinicalHistory" name="clinicalHistory" rows="3" placeholder="Enter clinical history" required></textarea>
+                        <textarea id="clinicalHistory" class="form-control" [(ngModel)]="patient.clinicalhistory" name="clinicalHistory" rows="3" placeholder="Enter clinical history" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="diagnosis" class="form-label">Diagnosis</label>

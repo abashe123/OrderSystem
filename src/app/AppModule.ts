@@ -33,6 +33,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
 import { PatientComponent } from './create-order/patient/patient.component';
+import { OrderStatusComponent } from './order-status/order-status.component';
+
 
 
 
@@ -50,7 +52,7 @@ import { PatientComponent } from './create-order/patient/patient.component';
     SidenavComponent,
     CreateOrderComponent,
     PatientComponent,
-
+    OrderStatusComponent,
 
   ],
 

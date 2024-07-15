@@ -1,5 +1,6 @@
 import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,6 @@ export class TokenService {
       if(payload){
         return(payload.iss==="http://127.0.0.1:8000/api/login")?true:false;
       }
-
     }
     return false;
   }

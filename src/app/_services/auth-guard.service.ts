@@ -10,7 +10,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private tokenService: TokenService, private router: Router) { }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.tokenService.loggedIn() && this.tokenService.getRole() === 'admin') {
+    if (this.tokenService.loggedIn()) {
       return true;
     } else {
       this.router.navigate(['/login']);

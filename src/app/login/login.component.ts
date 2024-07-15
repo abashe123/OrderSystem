@@ -46,8 +46,8 @@ export class LoginComponent {
 
   handleResponse(data:any){
     console.log(data);
-    this.token.handle(data.access_token);
-    const userData =localStorage.setItem("currentUser", JSON.stringify(data));
+    this.token.handle(data.token);
+    const userData =localStorage.setItem("currentUser", JSON.stringify(data.user['role']));
     const userLoggedIn :any = localStorage.getItem("currentUser")
     const currentUser = JSON.parse(userLoggedIn)
     if(userLoggedIn){
@@ -62,7 +62,7 @@ export class LoginComponent {
     console.log('current user:', currentUser);
     console.log(userData);
     this.Auth.changeAuthStatus(true);
-    const role = this.token.getRole();
+    //const role = this.token.getRole();
     if (currentUser.role === "admin") {
       this.router.navigateByUrl('/admin');
     } else {

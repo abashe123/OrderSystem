@@ -12,14 +12,20 @@
     <ul class="list-unstyled px-2">
       <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i> Reports</a></li>
       <li><a routerLink="/messages" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-comment"></i> Messages</a></li>
-      <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-envelope-open-text"></i> View Bill</a></li>
-      <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i> Order Status</a></li>
+      <li><a routerLink="/order-status" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i> Order Status</a></li>
       <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i> Manage Orders</a></li>
     </ul>
+    
+    
     <hr class="h-color mx-2">
     <ul class="list-unstyled px-2">
-      <li><a routerLink="/create-order" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars"></i> Create Order</a></li>
+      <ng-container *ngIf="this.userRole.includes('user')">
+        <li><a routerLink="/create-order" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars"></i> Create Order</a></li>
+
+      </ng-container>
       <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bell"></i> Notifications</a></li>
     </ul>
   </div>
+  
+
   
