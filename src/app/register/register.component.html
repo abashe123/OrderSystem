@@ -14,7 +14,7 @@
           (ngSubmit)="f.form.valid && onSubmit()">
           
           <div class="form-group">
-            <label for="exampleInputEmail1" class="text-uppercase">Name</label>
+            <label for="exampleInputEmail1" class="text-uppercase">Hospital Name</label>
             <input type="text" class="form-control" name="name" id="" [(ngModel)]="formdata.name" #name="ngModel" required>
             <span class="text-danger" *ngIf="submit && name.errors?.['required']">
               Name is required.
@@ -39,8 +39,8 @@
 
           <div class="form-group">
             <label for="exampleInputPhoneNumber1" class="text-uppercase">Phone Number</label>
-            <input class="form-control" type="text" name="phonenumber" id="" [(ngModel)]="formdata.phonenumber" #phonenumber="ngModel" required>
-            <span class="text-danger" *ngIf="submit && phonenumber.errors?.['required']">
+            <input class="form-control" type="text" name="phonenumber" id="" [(ngModel)]="formdata.phone_number" #phone_number="ngModel" required>
+            <span class="text-danger" *ngIf="submit && phone_number.errors?.['required']">
               Phone Number is required.
             </span>
           </div>

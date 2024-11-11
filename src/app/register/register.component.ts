@@ -8,7 +8,7 @@ interface FormData {
   name: string;
   email: string;
   rank: string;
-  phonenumber: string;
+  phone_number: string;
   password: string;
 }
 
@@ -19,7 +19,7 @@ interface FormData {
 })
 export class RegisterComponent implements OnInit {
 
-  formdata: FormData = { name: "", email: "", rank: "", phonenumber: "", password: "" };
+  formdata: FormData = { name: "", email: "", rank: "", phone_number: "", password: "" };
   submit = false;
   errorMessage = "";
   loading = false;
@@ -47,6 +47,8 @@ export class RegisterComponent implements OnInit {
     this.loading = false; // Stop loading after successful registration
   }
 
+  
+
   handleError(error: HttpErrorResponse) {
     this.error = error.error.error;
     this.errorMessage = "Registration failed. Please try again.";
@@ -55,29 +57,3 @@ export class RegisterComponent implements OnInit {
 }
 
 
-
-//   this.loading = true;
-//   this.random.register(this.formdata).subscribe(
-//     data => {
-//       console.log(data);
-//       this.loading = false;
-//     },
-
-//     (error: HttpErrorResponse) => { 
-
-//       this.handleError(error);
-//     }
-//   );
-// }
-
-// handleError(error: HttpErrorResponse) { 
-//   this.errorMessage = error.error.error;
-//   this.loading = false;
-// }
-// }
-
-
-
-
-//   constructor(private http: HttpClient) { }
-// 

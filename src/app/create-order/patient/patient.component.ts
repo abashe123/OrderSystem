@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-patient',
@@ -15,12 +17,14 @@ export class PatientComponent implements OnInit {
     gender: '',
     sampletype: '',
     clinicalhistory: '',
-    diagnosis: ''
+    diagnosis: '',
+    senderName: '',
+    sampleTransportDate: ''
   };
 
   token: string = ''; // Initialize token variable
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private location: Location) {}
 
   ngOnInit(): void {
     // Fetch token from localStorage on component initialization
@@ -28,6 +32,10 @@ export class PatientComponent implements OnInit {
   }
 
   submitForm(form: NgForm) {
+    //this.patient.sampleTransportDate = new Date().toISOString(); // Or use any date format you need
+    this.patient.sampleTransportDate = new Date().toLocaleString();
+
+
     if (form.valid) {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -42,7 +50,11 @@ export class PatientComponent implements OnInit {
         error => {
           console.error('Error occurred:', error);
           // Handle error as needed
-        }
+        },
+      () => {
+        this.location.go(this.location.path()); // changes the current URL to the same one to trigger a reload
+        window.location.reload();
+      }  
       );
     }
   }

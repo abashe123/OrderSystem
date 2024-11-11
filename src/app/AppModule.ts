@@ -34,6 +34,16 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
 import { PatientComponent } from './create-order/patient/patient.component';
 import { OrderStatusComponent } from './order-status/order-status.component';
+import { ReportComponent } from './report/report.component';
+import { ManageOrderComponent } from './manage-order/manage-order.component';
+import { NotificationComponent } from './notification/notification.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ReceivedSamplesComponent } from './received-samples/received-samples.component';
+import { ChartComponent } from './chart/chart.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { NgChartsModule } from 'ng2-charts';
+import { UserListComponent } from './user-list/user-list.component';
+
 
 
 
@@ -53,6 +63,15 @@ import { OrderStatusComponent } from './order-status/order-status.component';
     CreateOrderComponent,
     PatientComponent,
     OrderStatusComponent,
+    MessagesComponent,
+    ReportComponent,
+    ManageOrderComponent,
+    NotificationComponent,
+    ReceivedSamplesComponent,
+    AdminDashboardComponent,
+    UserListComponent,
+    ChartComponent
+ 
 
   ],
 
@@ -78,7 +97,10 @@ import { OrderStatusComponent } from './order-status/order-status.component';
     MatCardModule,
     MatSidenavModule,
     MatListModule,
-    NgxPermissionsModule.forRoot()
+    NgxPermissionsModule.forRoot(),
+    ToastrModule.forRoot(),
+    NgChartsModule
+  
 
  
    

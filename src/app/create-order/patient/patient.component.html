@@ -50,6 +50,14 @@
                         <label for="diagnosis" class="form-label">Diagnosis</label>
                         <textarea id="diagnosis" class="form-control" [(ngModel)]="patient.diagnosis" name="diagnosis" rows="3" placeholder="Enter diagnosis" required></textarea>
                     </div>
+                    <div class="mb-3">
+                        <label for="senderName" class="form-label">Sender's Name</label>
+                        <input type="text" id="senderName" class="form-control" [(ngModel)]="patient.senderName" name="senderName" placeholder="Enter sender's name" required>
+                    </div>
+                    <!-- <div class="mb-3">
+                        <label for="sampleDate" class="form-label">Date of Sample Transportation</label>
+                        <input type="date" id="sampleDate" class="form-control" [(ngModel)]="patient.sampleTransportDate" name="sampleDate" required>
+                    </div> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

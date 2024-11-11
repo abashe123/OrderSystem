@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
 import { TokenService } from '../_services/token.service';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,6 +10,9 @@ import { TokenService } from '../_services/token.service';
 })
 export class NavbarComponent{
   public loggedIn:boolean = false;
+  useremail: string | null = null;
+
+  
 
 constructor(
   private Auth:AuthService, private router: Router, private token: TokenService){}
@@ -19,12 +23,15 @@ ngOnInit(): void {
       this.loggedIn= value;
     }
   )
-
+  this.useremail = localStorage.getItem('email'); // Adjust this based on your actual storage mechanism
+  
+  
   } 
 
 logout(event:MouseEvent){
   event?.preventDefault();
   this.token.remove();
+  localStorage.removeItem('email'); // Clear the email
   this.Auth.changeAuthStatus(false);
   this.router.navigateByUrl('/login')
 }

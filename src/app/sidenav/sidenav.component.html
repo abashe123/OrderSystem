@@ -10,21 +10,26 @@
     </div>
   
     <ul class="list-unstyled px-2">
-      <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i> Reports</a></li>
-      <li><a routerLink="/messages" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-comment"></i> Messages</a></li>
-      <li><a routerLink="/order-status" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i> Order Status</a></li>
-      <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i> Manage Orders</a></li>
-    </ul>
-    
-    
-    <hr class="h-color mx-2">
-    <ul class="list-unstyled px-2">
       <ng-container *ngIf="this.userRole.includes('user')">
         <li><a routerLink="/create-order" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars"></i> Create Order</a></li>
+        <!-- <hr class="h-color mx-2"> -->
+    <!-- <ul class="list-unstyled px-2"> -->
+      <li><a routerLink="/notification" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bell"></i> Notifications</a></li>
+      <li><a routerLink="/order-status" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i> Sample Status</a></li>
+      <li><a routerLink="/messages" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-comment"></i> Messages</a></li>
+      </ng-container>
+      
+      <ng-container *ngIf="userRole.includes('admin')">
+        <li><a routerLink="/user-list" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i> Users </a></li>
+        <li><a routerLink="/admin-dashboard" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i> Dashboard</a></li>
+        <!-- <li><a routerLink="/report" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i> Reports</a></li> -->
+        <li><a routerLink="/manage-order" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i> Manage Orders</a></li>
+        <li><a routerLink="/received-samples" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i> Received Samples</a></li>
 
       </ng-container>
-      <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bell"></i> Notifications</a></li>
     </ul>
+    
+    
   </div>
   
 
